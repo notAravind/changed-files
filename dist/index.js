@@ -1207,7 +1207,7 @@ const getSHAForPullRequestEvent = (inputs, env, workingDirectory, isShallow, has
         };
     }
     if (!((_s = (_r = github.context.payload.pull_request) === null || _r === void 0 ? void 0 : _r.base) === null || _s === void 0 ? void 0 : _s.ref) ||
-        ((_u = (_t = github.context.payload.head) === null || _t === void 0 ? void 0 : _t.repo) === null || _u === void 0 ? void 0 : _u.fork) === 'true') {
+        ((_u = (_t = github.context.payload.head) === null || _t === void 0 ? void 0 : _t.repo) === null || _u === void 0 ? void 0 : _u.fork) === true) {
         diff = '..';
     }
     if (!previousSha || previousSha === currentSha) {
