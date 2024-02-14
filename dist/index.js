@@ -1108,7 +1108,7 @@ const getSHAForNonPullRequestEvent = (inputs, env, workingDirectory, isShallow, 
 });
 exports.getSHAForNonPullRequestEvent = getSHAForNonPullRequestEvent;
 const getSHAForPullRequestEvent = (inputs, env, workingDirectory, isShallow, hasSubmodule, gitFetchExtraArgs) => __awaiter(void 0, void 0, void 0, function* () {
-    var _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2;
+    var _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4;
     let targetBranch = (_m = (_l = github.context.payload.pull_request) === null || _l === void 0 ? void 0 : _l.base) === null || _m === void 0 ? void 0 : _m.ref;
     const currentBranch = (_p = (_o = github.context.payload.pull_request) === null || _o === void 0 ? void 0 : _o.head) === null || _p === void 0 ? void 0 : _p.ref;
     if (inputs.sinceLastRemoteCommit) {
@@ -1206,9 +1206,9 @@ const getSHAForPullRequestEvent = (inputs, env, workingDirectory, isShallow, has
             diff
         };
     }
-    core.info(`Is this ${(_s = (_r = github.context.payload.head) === null || _r === void 0 ? void 0 : _r.repo) === null || _s === void 0 ? void 0 : _s.fork}`);
-    if (!((_u = (_t = github.context.payload.pull_request) === null || _t === void 0 ? void 0 : _t.base) === null || _u === void 0 ? void 0 : _u.ref) ||
-        ((_w = (_v = github.context.payload.head) === null || _v === void 0 ? void 0 : _v.repo) === null || _w === void 0 ? void 0 : _w.fork) === true) {
+    core.info(`Is this ${(_t = (_s = (_r = github.context.payload.pull_request) === null || _r === void 0 ? void 0 : _r.head) === null || _s === void 0 ? void 0 : _s.repo) === null || _t === void 0 ? void 0 : _t.fork}`);
+    if (!((_v = (_u = github.context.payload.pull_request) === null || _u === void 0 ? void 0 : _u.base) === null || _v === void 0 ? void 0 : _v.ref) ||
+        ((_y = (_x = (_w = github.context.payload.pull_request) === null || _w === void 0 ? void 0 : _w.head) === null || _x === void 0 ? void 0 : _x.repo) === null || _y === void 0 ? void 0 : _y.fork) === true) {
         diff = '..';
     }
     if (!previousSha || previousSha === currentSha) {
@@ -1250,7 +1250,7 @@ const getSHAForPullRequestEvent = (inputs, env, workingDirectory, isShallow, has
         }
         else {
             if (github.context.payload.action === 'closed') {
-                previousSha = (_y = (_x = github.context.payload.pull_request) === null || _x === void 0 ? void 0 : _x.base) === null || _y === void 0 ? void 0 : _y.sha;
+                previousSha = (_0 = (_z = github.context.payload.pull_request) === null || _z === void 0 ? void 0 : _z.base) === null || _0 === void 0 ? void 0 : _0.sha;
             }
             else {
                 previousSha = yield (0, utils_1.getRemoteBranchHeadSha)({
@@ -1258,7 +1258,7 @@ const getSHAForPullRequestEvent = (inputs, env, workingDirectory, isShallow, has
                     branch: targetBranch
                 });
                 if (!previousSha) {
-                    previousSha = (_0 = (_z = github.context.payload.pull_request) === null || _z === void 0 ? void 0 : _z.base) === null || _0 === void 0 ? void 0 : _0.sha;
+                    previousSha = (_2 = (_1 = github.context.payload.pull_request) === null || _1 === void 0 ? void 0 : _1.base) === null || _2 === void 0 ? void 0 : _2.sha;
                 }
             }
             if (isShallow) {
@@ -1296,7 +1296,7 @@ const getSHAForPullRequestEvent = (inputs, env, workingDirectory, isShallow, has
             }
         }
         if (!previousSha || previousSha === currentSha) {
-            previousSha = (_2 = (_1 = github.context.payload.pull_request) === null || _1 === void 0 ? void 0 : _1.base) === null || _2 === void 0 ? void 0 : _2.sha;
+            previousSha = (_4 = (_3 = github.context.payload.pull_request) === null || _3 === void 0 ? void 0 : _3.base) === null || _4 === void 0 ? void 0 : _4.sha;
         }
     }
     if (!(yield (0, utils_1.canDiffCommits)({
