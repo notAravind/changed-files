@@ -430,8 +430,9 @@ export const getSHAForPullRequestEvent = async (
   core.info(`Is this ${github.context.payload.pull_request?.head?.repo?.fork}`)
   if (
     !github.context.payload.pull_request?.base?.ref ||
-    github.context.payload.pull_request?.head?.repo?.fork === true
+    github.context.payload.pull_request?.head?.repo?.fork === 'true'
   ) {
+    core.info('And Am making .. for some reason')
     diff = '..'
   }
 

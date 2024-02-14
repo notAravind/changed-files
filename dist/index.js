@@ -1208,7 +1208,8 @@ const getSHAForPullRequestEvent = (inputs, env, workingDirectory, isShallow, has
     }
     core.info(`Is this ${(_t = (_s = (_r = github.context.payload.pull_request) === null || _r === void 0 ? void 0 : _r.head) === null || _s === void 0 ? void 0 : _s.repo) === null || _t === void 0 ? void 0 : _t.fork}`);
     if (!((_v = (_u = github.context.payload.pull_request) === null || _u === void 0 ? void 0 : _u.base) === null || _v === void 0 ? void 0 : _v.ref) ||
-        ((_y = (_x = (_w = github.context.payload.pull_request) === null || _w === void 0 ? void 0 : _w.head) === null || _x === void 0 ? void 0 : _x.repo) === null || _y === void 0 ? void 0 : _y.fork) === true) {
+        ((_y = (_x = (_w = github.context.payload.pull_request) === null || _w === void 0 ? void 0 : _w.head) === null || _x === void 0 ? void 0 : _x.repo) === null || _y === void 0 ? void 0 : _y.fork) === 'true') {
+        core.info('And Am making .. for some reason');
         diff = '..';
     }
     if (!previousSha || previousSha === currentSha) {
