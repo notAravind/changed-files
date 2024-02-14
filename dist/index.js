@@ -2590,7 +2590,7 @@ const canDiffCommits = ({ cwd, sha1, sha2, diff }) => __awaiter(void 0, void 0, 
         return true;
     }
     else {
-        const { exitCode, stderr } = yield exec.getExecOutput('git', ['diff', '--quiet', sha1, sha2], {
+        const { exitCode, stderr } = yield exec.getExecOutput('git', ['diff', '--no-patch', sha1, sha2], {
             cwd,
             ignoreReturnCode: true,
             silent: !core.isDebug()
