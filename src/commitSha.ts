@@ -427,7 +427,8 @@ export const getSHAForPullRequestEvent = async (
     }
   }
 
-  core.info(`Is this ${github.context.payload.pull_request?.head?.repo?.fork}`)
+  core.info(`Head ${github.context.payload.head}`)
+  core.info(`Head Repo${github.context.payload.head?.repo}`)
   if (
     !github.context.payload.pull_request?.base?.ref ||
     github.context.payload.pull_request?.head?.repo?.fork === true
